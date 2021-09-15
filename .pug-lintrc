@@ -1,0 +1,4 @@
+{
+  "extends": "pug-lint-config-myrules",
+  "disallowIdLiterals": null
+}

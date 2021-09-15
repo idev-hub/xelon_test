@@ -13,8 +13,8 @@ const isProd = !isDev
 const plugins = () => {
     const base = [
         new HtmlWebpackPlugin({
-            template: '!!ejs-webpack-loader!src/views/index.ejs',
-            inject: "head"
+            template: 'views/index.pug',
+            inject: true
         }),
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin({
@@ -94,7 +94,11 @@ module.exports = {
     optimization: optiomization(),
     devServer: {
         port: 3000,
-        hot: isDev
+        hot: isDev,
+        static: {
+            directory: path.join(__dirname, 'src'),
+            watch: true,
+        }
     },
     plugins: plugins(),
     module: {
@@ -137,7 +141,11 @@ module.exports = {
             {
                 test: /\.(ttf|woff|woff2|eot)/,
                 type: 'asset/resource'
-            }
+            },
+            {
+                test: /\.pug$/,
+                use: ['pug-loader']
+            },
         ]
     }
 }
