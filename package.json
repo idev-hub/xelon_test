@@ -1,0 +1,58 @@
+{
+  "name": "xelon_test",
+  "version": "1.0.0",
+  "description": "https://www.figma.com/file/dypnzVM7QcktlqRSec2zsq/UltraTop",
+  "private": true,
+  "browserslist": "> 0.25%, not dead",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack --mode production",
+    "dev": "cross-env NODE_ENV=development webpack --mode development",
+    "dev:watch": "cross-env NODE_ENV=development webpack-dev-server --mode development --open",
+    "analyzer": "webpack --json > analyzer.json && webpack-bundle-analyzer analyzer.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/idev-hub/xelon_test.git"
+  },
+  "author": "Alexey Snegirev <idev.hub@ya.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/idev-hub/xelon_test/issues"
+  },
+  "homepage": "https://github.com/idev-hub/xelon_test#readme",
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^9.0.1",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.2.0",
+    "ejs-webpack-loader": "^2.2.2",
+    "eslint": "^7.32.0",
+    "eslint-loader": "^4.0.2",
+    "file-loader": "^6.2.0",
+    "handlebars-loader": "^1.7.1",
+    "handlebars-webpack-plugin": "^2.2.1",
+    "html-webpack-plugin": "^5.3.2",
+    "html-webpack-pug-plugin": "^3.0.0",
+    "mini-css-extract-plugin": "^2.3.0",
+    "node-sass": "^6.0.1",
+    "optimize-css-assets-webpack-plugin": "^6.0.1",
+    "pug": "^3.0.2",
+    "pug-loader": "^2.4.0",
+    "raw-loader": "^4.0.2",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.2.1",
+    "terser-webpack-plugin": "^5.2.4",
+    "webpack": "^5.52.1",
+    "webpack-bundle-analyzer": "^4.4.2",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.2.1"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "normalize.css": "^8.0.1"
+  }
+}
