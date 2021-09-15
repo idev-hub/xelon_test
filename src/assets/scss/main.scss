@@ -1,5 +1,19 @@
 @import "~normalize.css";
 
 html, body {
-  background: green;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../images/background.jpg");
+  background-size: cover;
+}
+
+.logo {
+  fill: darkturquoise;
+  transition: fill .3s;
+
+  &:hover {
+    fill: aqua;
+  }
 }

@@ -6,7 +6,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
 const OptimizeCxssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
-const fs = require('fs')
 
 const isDev = process.env.NODE_ENV === 'development'
 const isProd = !isDev
@@ -29,7 +28,7 @@ const plugins = () => {
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css',
             chunkFilename: '[id].[contenthash].css'
-        })
+        }),
     ]
 
     if (isProd) {
@@ -76,18 +75,20 @@ module.exports = {
     devtool: isDev ? 'source-map' : false,
     context: path.resolve(__dirname, 'src'),
     entry: {
-        main: ['@babel/polyfill', './main.js']
+        main: ['@babel/polyfill', 'webp-in-css/polyfill', './main.js']
     },
     output: {
         filename: '[name].[contenthash].js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        assetModuleFilename: '[contenthash][ext]'
     },
     resolve: {
         alias: {
             '@': path.resolve(__dirname, 'src'),
             '@assets': path.resolve(__dirname, 'src/assets'),
             '@images': path.resolve(__dirname, 'src/assets/images'),
-            '@templates': path.resolve(__dirname, 'src/templates'),
+            '@svg': path.resolve(__dirname, 'src/assets/images/svg'),
+            '@templates': path.resolve(__dirname, 'src/views/templates'),
         }
     },
     optimization: optiomization(),
@@ -106,19 +107,36 @@ module.exports = {
             },
             {
                 test: /\.css/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader']
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'postcss-loader'
+                ]
             },
             {
                 test: /\.s[ac]ss/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'postcss-loader',
+                    'sass-loader'
+                ]
             },
             {
-                test: /\.(png|jpg|jpeg|svg|webp|gif)/,
-                use: ['file-loader']
+                test: /\.svg$/,
+                use: [
+                    {loader: 'svg-sprite-loader', options: {}},
+                    'svg-transform-loader',
+                    'svgo-loader'
+                ]
+            },
+            {
+                test: /\.(png|jpg|jpeg|webp|gif)/,
+                type: 'asset/resource'
             },
             {
                 test: /\.(ttf|woff|woff2|eot)/,
-                use: ['file-loader']
+                type: 'asset/resource'
             }
         ]
     }
