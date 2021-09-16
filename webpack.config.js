@@ -22,6 +22,10 @@ const plugins = () => {
                 {
                     from: path.resolve(__dirname, './src/favicon.png'),
                     to: path.resolve(__dirname, './dist')
+                },
+                {
+                    from: path.resolve(__dirname, './src/thumbnail.png'),
+                    to: path.resolve(__dirname, './dist')
                 }
             ]
         }),
