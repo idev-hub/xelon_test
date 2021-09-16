@@ -1,0 +1,79 @@
+#screens .screen-main {
+  background-image: url("@images/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  @media (max-width: 768px) {
+    background-image: url("@images/background-mobile.jpg");
+  }
+
+  .screen-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 90px;
+    left: 0;
+    text-align: center;
+    width: 100%;
+
+    @media (max-width: 768px) {
+      bottom: 60px;
+    }
+
+    &__text {
+      font-size: 16px;
+      line-height: 20px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-feature-settings: 'kern' off;
+      color: #FFFFFF;
+      position: relative;
+      cursor: pointer;
+      transition: .3s;
+
+      &:hover {
+        opacity: .7;
+      }
+
+      &:before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50px;
+        width: 1px;
+        height: 60px;
+        background: #FFFFFF;
+        transform: translateX(-50%);
+
+        @media (max-width: 768px) {
+          height: 30px;
+        }
+      }
+    }
+  }
+  .screen-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-logotype {
+      &__icon {
+        fill: #fff;
+        width: 500px;
+        height: 150px;
+
+        @media (max-width: 768px) {
+          width: 200px;
+          height: 60px;
+        }
+      }
+    }
+  }
+}

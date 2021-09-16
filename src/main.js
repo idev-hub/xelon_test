@@ -4,5 +4,4 @@ import "@svg/close.svg";
 
 import "@assets/scss/main.scss";
 
-import test from "@assets/js/test";
-test()
+import "@assets/js/fullpage";
