@@ -1,7 +1,9 @@
 # XELON
 ## Тестовое задание frontend:
 
-https://www.figma.com/file/dypnzVM7QcktlqRSec2zsq/UltraTop
+[Figma](https://www.figma.com/file/dypnzVM7QcktlqRSec2zsq/UltraTop)
+
+[Ссылка на верстку ](https://idev-hub.github.io/xelon_test/dist)
 
 Сверстать страницу.
 Страница состоит из 2 fullpage-экранов, скролл между ними по кнопке бургера и стрелке.
