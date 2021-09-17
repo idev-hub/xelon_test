@@ -1,4 +1,4 @@
-#screens {
+.screens {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -6,67 +6,80 @@
   top: 0;
   right: 0;
   bottom: 0;
-  transition: .7s;
+  background-image: url("@images/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 
-  .screen {
-    display: table;
-    width: 100%;
-    height: 100%;
-
-    .screen-header {
-      position: absolute;
-      width: 100%;
-      top: 40px;
-      left: 0;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      z-index: 1;
-      padding: 0 20px;
-
-      @media (max-width: 768px) {
-        top: 20px;
-      }
-
-      .screen-logotype {
-        &__icon {
-          fill: #fff;
-          height: 50px;
-          width: 166px;
-
-          @media (max-width: 768px) {
-            height: 30px;
-            width: 100px;
-          }
-        }
-      }
-
-      &-burger, &-close {
-        cursor: pointer;
-
-        &__icon {
-          fill: #fff;
-          width: 50px;
-          height: 50px;
-          transition: .3s;
-
-          &:hover {
-            opacity: .7;
-          }
-
-          @media (max-width: 768px) {
-            width: 30px;
-            height: 30px;
-          }
-        }
-      }
-    }
-    .screen-content {
-      padding: 0 20px;
-    }
-    .screen-footer{
-      padding: 0 20px;
-    }
+  @media (max-width: 768px) {
+    background-image: url("@images/background-mobile.jpg");
   }
 }
 
+.screen {
+  display: table;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  .screen-header {
+    position: absolute;
+    width: 100%;
+    top: 40px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    z-index: 1;
+    padding: 0 20px;
+
+    @media (max-width: 768px) {
+      top: 20px;
+    }
+
+    .screen-logotype {
+      &__icon {
+        fill: #fff;
+        height: 50px;
+        width: 166px;
+
+        @media (max-width: 768px) {
+          height: 30px;
+          width: 100px;
+        }
+      }
+    }
+
+    &-burger, &-close {
+      cursor: pointer;
+
+      &__icon {
+        fill: #fff;
+        width: 50px;
+        height: 50px;
+        transition: .3s;
+
+        &:hover {
+          opacity: .7;
+        }
+
+        @media (max-width: 768px) {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+  }
+  .screen-content {
+    padding: 0 20px;
+  }
+  .screen-footer{
+    padding: 0 20px;
+  }
+}
+
+#screens-wrapper {
+  width: 100%;
+  height: 100%;
+  transition: transform .7s;
+}
