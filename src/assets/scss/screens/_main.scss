@@ -1,32 +1,25 @@
-#screens .screen-main {
-  background-image: url("@images/background.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-
-  @media (max-width: 768px) {
-    background-image: url("@images/background-mobile.jpg");
-  }
-
+.screen-main {
   .screen-footer {
     display: flex;
-    align-items: center;
     justify-content: center;
     position: absolute;
-    bottom: 90px;
+    bottom: 0;
+    height: 90px;
     left: 0;
-    text-align: center;
     width: 100%;
 
     @media (max-width: 768px) {
-      bottom: 60px;
+      height: 60px;
     }
 
     &__text {
+      display: flex;
+      height: 100%;
       font-size: 16px;
       line-height: 20px;
       letter-spacing: 0.05em;
       text-transform: uppercase;
+      text-align: center;
       font-feature-settings: 'kern' off;
       color: #FFFFFF;
       position: relative;
@@ -48,6 +41,7 @@
         transform: translateX(-50%);
 
         @media (max-width: 768px) {
+          top: 30px;
           height: 30px;
         }
       }
